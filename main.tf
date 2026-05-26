@@ -65,8 +65,7 @@ resource "aws_instance" "akhil_ec2_terraform" {
 
 resource "aws_s3_bucket" "akhil_bucket" {
 
-  bucket = "akhil-s3-bucket-v123
-"
+  bucket = "akhil-s3-bucket-v123"
 
   tags = {
     Name = "akhilTerraformBucket"
