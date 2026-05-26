@@ -6,8 +6,8 @@ provider "aws" {
 # Security Group
 # -----------------------------
 
-resource "aws_security_group" "nikk_sg" {
-  name        = "nikk-security-group"
+resource "aws_security_group" "akhil_sg" {
+  name        = "akhil-security-group"
   description = "Allow SSH and HTTP access"
 
   ingress {
@@ -35,7 +35,7 @@ resource "aws_security_group" "nikk_sg" {
   }
 
   tags = {
-    Name = "NikkSecurityGroup"
+    Name = "akhilSecurityGroup"
   }
 }
 
@@ -43,19 +43,19 @@ resource "aws_security_group" "nikk_sg" {
 # EC2 Instance
 # -----------------------------
 
-resource "aws_instance" "nikk_ec2_terraform" {
+resource "aws_instance" "akhil_ec2_terraform" {
 
   ami           = "ami-024ebedf48d280810"
   instance_type = "t3.micro"
 
-  key_name = "nikk-key"
+  key_name = "akhil-ec2-keypair"
 
   vpc_security_group_ids = [
-    aws_security_group.nikk_sg.id
+    aws_security_group.akhil_sg.id
   ]
 
   tags = {
-    Name = "NikkTerraformEC2"
+    Name = "akhilTerraformEC2"
   }
 }
 
@@ -63,11 +63,11 @@ resource "aws_instance" "nikk_ec2_terraform" {
 # S3 Bucket
 # -----------------------------
 
-resource "aws_s3_bucket" "nikk_bucket" {
+resource "aws_s3_bucket" "akhil_bucket" {
 
-  bucket = "nikk-s3-bucket"
+  bucket = "akhil-s3-bucket"
 
   tags = {
-    Name = "NikkTerraformBucket"
+    Name = "akhilTerraformBucket"
   }
 }
